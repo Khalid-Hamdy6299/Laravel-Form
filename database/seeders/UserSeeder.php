@@ -17,13 +17,13 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Developer',
                 'email' => 'dev@sunrise.com',
-                'type' => 'admin',
+                'type_id' => '1',
                 'password' => bcrypt('Abc$123')
             ],
             [
                 'name' => 'HR',
-                'email' => 'HR@sunrise.com',
-                'type' => 'hr.dbh',
+                'email' => 'hr@sunrise.com',
+                'type_id' => '2',
                 'password' => bcrypt('Abc$123')
             ]
         ];

@@ -33,7 +33,7 @@
                     <th>{{ $loop->iteration }}</th>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->type }}</td>
+                    <td>{{ $user->type->name }}</td>
                     <td>
                         <a href="{{ route('Edit_User', ['id' => $user->id]) }}" class="btn btn-primary">Edit</a>
                         <form action="{{ route('Delete_User', ['id' => $user->id]) }}" method="post"

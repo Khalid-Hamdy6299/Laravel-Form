@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->enum('type',['admin','hr.dbh','it.dbh'])->default('it.dbh')->change();
+            $table->foreignId('type_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

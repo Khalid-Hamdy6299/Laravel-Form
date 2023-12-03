@@ -31,7 +31,7 @@
 
         <div class="input-block">
             <label for="">Type</label> <br>
-            <input class="form-control" type="text" name="type" id="" value="{{ $user->type }}"
+            <input class="form-control" type="text" name="type_id" id="" value="{{ $user->type->name }}"
                 disabled>
             <br> <br>
         </div>

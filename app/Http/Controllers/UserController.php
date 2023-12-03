@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Type;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class UserController extends Controller
     public function add()
     {
         $users = User::get();
-        return view('User.add', compact('users'));
+        $types = Type::get();
+        return view('User.add', compact('users', 'types'));
     }
 
     public function store(Request $request)
@@ -30,7 +32,7 @@ class UserController extends Controller
         $data = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
-            'type' => 'required|in:admin,it.dbh,hr.dbh',
+            'type_id' => 'required|exists:types,id',
             'password' => 'required|string'
         ]);
 
@@ -42,7 +44,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findorfail($id);
-        return view('User.edit', compact('user'));
+        $types = Type::get();
+        return view('User.edit', compact('user','types'));
     }
 
     public function update($id, Request $request)
@@ -51,7 +54,7 @@ class UserController extends Controller
         $data = $request->validate([
             'name' => 'string',
             'email' => 'email',
-            'type' => 'required|in:admin,it.dbh,hr.dbh',
+            'type_id' => 'required|exists:types,id',
             'password' => 'string'
         ]);
 

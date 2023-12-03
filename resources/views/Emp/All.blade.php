@@ -13,7 +13,7 @@
     @include('Emp.success') <br>
     <h2 style="color: rgb(100, 100, 162); margin-bottom: 40px">Welcome, {{ Auth::user()->name }}</h2>
     <a href="{{ route('Add_Emp') }}" class="btn btn-success float-right">Add Employee</a>
-    @if (Auth::user()->type === 'admin')
+    @if (Auth::user()->type->name === 'Admin')
         <a style="margin-left: 25px;" href="{{ route('All_Users') }}" class="btn btn-success float-right">All Users</a>
     @endif
 

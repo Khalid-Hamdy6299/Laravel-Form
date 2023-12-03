@@ -17,10 +17,10 @@ class IsAdmin
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-            $userType = Auth::user()->type;
+            $userType = Auth::user()->type->name;
 
             // Check if the user type is 'admin', or 'it'
-            if ($userType === 'admin' || $userType === 'it.dbh' || $userType === 'hr.dbh') {
+            if ($userType === 'Admin' || $userType === 'IT' || $userType === 'HR') {
                 return $next($request);
             }
         }

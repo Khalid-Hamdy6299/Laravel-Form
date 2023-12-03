@@ -37,13 +37,13 @@
 
             <div class="input-block">
                 <label for="">Type</label> <br>
-                <select name="type" id="" class="form-control @error('type') is-invalid @enderror">
-                    <option disabled selected value="{{ $user->id }}">{{ $user->type }}</option>
-                    <option value="admin">Admin</option>
-                    <option value="it.dbh">IT</option>
-                    <option value="hr.dbh">HR</option>
+                <select name="type_id" id="" class="form-control @error('type_id') is-invalid @enderror">
+                    <option value="{{ $user->type_id }}" disabled selected>{{ $user->type->name }}</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                    @endforeach
                 </select>
-                @error('type')
+                @error('type_id')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
                 <br> <br>
